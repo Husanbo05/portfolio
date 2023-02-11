@@ -6,10 +6,13 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     color: white;
+    list-style: none;
+    text-decoration: none;
 }
 
 body {
     background-color: #2a2c2f;
+    min-width: 370px;
 }
 
 ::-webkit-scrollbar {
@@ -81,9 +84,11 @@ body {
         font-size: 96px;
         max-width: 720px;
         margin: auto;
-
+        @media (max-width: 768px) {
+            font-size: 55px;
+        }
         @media (max-width: 576px) {
-            font-size: 40px;
+            font-size: 36px;
         }
     }
     &__subtitle {
@@ -95,6 +100,10 @@ body {
         text-align: center;
         margin: auto;
         margin-top: 32px;
+        @media (max-width: 576px) {
+            font-size: 16px;
+            margin-top: 20px;
+        }
     }
     div {
         margin-top: 64px;
@@ -129,23 +138,12 @@ body {
     @media (max-width: 1024px) {
         grid-template-columns: 1fr 1fr 1fr;
     }
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
 
     @media (max-width: 576px) {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .grid {
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    .lead__title {
-        @media (max-width: 768px) {
-            font-size: 55px;
-        }
     }
 }
 
@@ -163,10 +161,17 @@ body {
         grid-template-columns: 1fr 1fr;
         column-gap: 40px;
         row-gap: 48px;
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
         &__title {
             font-weight: 900;
             font-size: 72px;
             line-height: 76px;
+            @media (max-width: 992px) {
+                font-size: 55px;
+                column-gap: 20px;
+            }
         }
         &__website {
             display: flex;
@@ -198,29 +203,89 @@ body {
     }
 }
 
-// .hover {
-//     width: 300px;
-//     height: 300px;
-//     background-image: url(place__img.png);
-//     background-position: center;
-//     background-size: cover;
-//     cursor: pointer;
-//     &:hover{
-//         .filter{
-//             transition: .5s;
-//             background: rgba(0, 0, 0, 0.8);
-//         }
-//     }
-//     .filter {
-//         transition: .5s;
-//         background: none;
-//         width: 100%;
-//         height: 100%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         p{
-//             font-size: 30px;
-//         }
-//     }
-// }
+.cover {
+    display: block;
+    margin-top: 90px;
+    width: 100%;
+    background-image: url(../images/cover.png);
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    &:hover {
+        .filter {
+            transition: 0.5s;
+            background: rgba(0, 0, 0, 0.8);
+        }
+    }
+    .filter {
+        background: rgba(0, 0, 0, 0.2);
+        transition: 0.5s;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 245px 15px;
+        @media (max-width: 768px) {
+            padding: 115px 15px;
+        }
+        @media (max-width: 576px) {
+            padding: 100px 15px;
+        }
+        &__title {
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 76px;
+            text-align: center;
+            max-width: 560px;
+            @media (max-width: 576px) {
+                font-size: 32px;
+                line-height: 35px;
+            }
+        }
+        &__subtitle {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22px;
+            text-align: center;
+            max-width: 360px;
+            margin-top: 32px;
+            @media (max-width: 576px) {
+                font-size: 14px;
+                margin-top: 16px;
+                line-height: 16px;
+            }
+        }
+    }
+}
+
+.footer {
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 40px;
+    @media (max-width: 576px) {
+        flex-direction: column;
+    }
+    &__nav {
+        display: flex;
+        gap: 18px;
+        @media (max-width: 576px) {
+            flex-direction: column;
+        }
+        a {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            color: #ffffff;
+        }
+    }
+    &__copyright {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
